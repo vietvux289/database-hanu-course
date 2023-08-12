@@ -1,0 +1,18 @@
+
+DROP TABLE IF EXISTS `emp_copy`;
+
+CREATE TABLE `emp_copy` (
+  `EMP_NUM` decimal(4,0) NOT NULL,
+  `EMP_TITLE` varchar(4) DEFAULT NULL,
+  `EMP_LNAME` varchar(15) NOT NULL,
+  `EMP_FNAME` varchar(15) NOT NULL,
+  `EMP_DOB` date NOT NULL,
+  `EMP_HIRE_DATE` date DEFAULT NULL,
+  `EMP_AREA_CODE` varchar(4) NOT NULL,
+  `EMP_PHONE` varchar(12) NOT NULL,
+  `PARK_CODE` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`EMP_NUM`),
+  KEY `PARK_CODE` (`PARK_CODE`),
+  KEY `EMP_LNAME_INDEX` (`EMP_LNAME`(8)),
+  FOREIGN KEY (`PARK_CODE`) REFERENCES `themepark` (`PARK_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
